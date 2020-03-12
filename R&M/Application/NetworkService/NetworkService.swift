@@ -21,12 +21,11 @@ class NetworkService {
                 guard let data = data else { return }
                 
                 do {
-                   let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                   let json = try JSONSerialization.jsonObject(with:data, options: []) as? [String: AnyObject]
                     DispatchQueue.main.async(execute: {
 //                        print(json)
-                         print("NetworkService")
-                        completionHandler(json)
-                        print("json")
+                        completionHandler(json!)
+
                     })
                 } catch {
                     print(error)

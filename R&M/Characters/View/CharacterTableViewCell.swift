@@ -14,7 +14,7 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var characterName: UILabel!
     
     
-    func configure(with character: CharactersAPI) {
+    func configure(with character: Character) {
         self.characterName.text = character.name
 //           self.characterPhoto
        }

@@ -12,19 +12,23 @@ class CharactersController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var characters: [CharactersAPI] = []
+//    var characters: [CharactersAPI] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        
-        CharactersNetworkService.getCharacters { (response) in
-            self.characters = response.characters
-            print("This is our characters \(self.characters)")
-            self.tableView.reloadData()
-
+        APIController.shared.getCharacters {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+//        CharactersNetworkService.getCharacters { (response) in
+//            self.characters = response.characters
+//            print("This is our characters \(self.characters)")
+//            self.tableView.reloadData()
+//
+//        }
         }
     }
 
@@ -34,16 +38,17 @@ extension CharactersController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)  as! CharacterTableViewCell
-        let character = characters[indexPath.row]
-        print("There are \(characters.count) characters")
-        print("This characters are: \(characters)")
-        print("hello")
+//        let character = characters[indexPath.row]
+//        print("There are \(characters.count) characters")
+//        print("This characters are: \(characters)")
+//        print("hello")
+        let character = APIController.shared.characterList[indexPath.row]
         cell.configure(with: character)
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return APIController.shared.characterList.count
 //        return 5
     }
 }

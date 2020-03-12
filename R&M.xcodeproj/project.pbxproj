@@ -19,6 +19,8 @@
 		526F31502418D5D300756D0C /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F314F2418D5D300756D0C /* NetworkErrors.swift */; };
 		526F31522418D60A00756D0C /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F31512418D60A00756D0C /* CharactersResponse.swift */; };
 		526F31552418D6FE00756D0C /* CharactersNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526F31542418D6FE00756D0C /* CharactersNetworkService.swift */; };
+		52CEE91F241964180078FFD9 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CEE91E241964180078FFD9 /* APIController.swift */; };
+		52CEE921241964360078FFD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CEE920241964360078FFD9 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		526F314F2418D5D300756D0C /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		526F31512418D60A00756D0C /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		526F31542418D6FE00756D0C /* CharactersNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersNetworkService.swift; sourceTree = "<group>"; };
+		52CEE91E241964180078FFD9 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		52CEE920241964360078FFD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				526F31492418D4DD00756D0C /* Application */,
 				526F31482418D4CE00756D0C /* Characters */,
 				526F314E2418D55E00756D0C /* Support Files */,
+				52CEE91E241964180078FFD9 /* APIController.swift */,
+				52CEE920241964360078FFD9 /* Character.swift */,
 			);
 			path = "R&M";
 			sourceTree = "<group>";
@@ -246,8 +252,10 @@
 			files = (
 				526F313A241816FF00756D0C /* CharacterTableViewCell.swift in Sources */,
 				526F31552418D6FE00756D0C /* CharactersNetworkService.swift in Sources */,
+				52CEE921241964360078FFD9 /* Character.swift in Sources */,
 				526F31382417FB8B00756D0C /* CharactersAPI.swift in Sources */,
 				526F31522418D60A00756D0C /* CharactersResponse.swift in Sources */,
+				52CEE91F241964180078FFD9 /* APIController.swift in Sources */,
 				526F31222417FAFB00756D0C /* AppDelegate.swift in Sources */,
 				526F31502418D5D300756D0C /* NetworkErrors.swift in Sources */,
 				526F31422418CCFE00756D0C /* CharactersController.swift in Sources */,

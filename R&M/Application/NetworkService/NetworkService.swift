@@ -15,22 +15,22 @@ class NetworkService {
     static let shared = NetworkService()
     
     func getData(url: URL, completionHandler: @escaping (Any) -> ()) {
-            let session = URLSession.shared
+        let session = URLSession.shared
+        
+        session.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
             
-            session.dataTask(with: url) { (data, response, error) in
-                guard let data = data else { return }
-                
-                do {
-                   let json = try JSONSerialization.jsonObject(with:data, options: []) as? [String: AnyObject]
+            do {
+                if let json = try JSONSerialization.jsonObject(with:data, options: []) as? [String: Any], let charactersResult = json["results"] as? [[String: AnyObject]] {
+                    
                     DispatchQueue.main.async(execute: {
-//                        print(json)
-                        completionHandler(json!)
-
+                        completionHandler(charactersResult)
                     })
-                } catch {
-                    print(error)
                 }
-            }.resume()
-        }
+            } catch {
+                print(error)
+            }
+        }.resume()
     }
-    
+}
+

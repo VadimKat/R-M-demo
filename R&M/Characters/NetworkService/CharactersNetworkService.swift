@@ -11,13 +11,15 @@ import Foundation
 class CharactersNetworkService {
     private init() {}
     
+    static var page: Int = 1
+    
     static func getCharacters(completion: @escaping(CharactersResponse) -> ()) {
-        guard let url = URL(string: "https://rickandmortyapi.com/api/character/?page=19") else { return }
+        guard let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)") else { return }
         
         NetworkService.shared.getData(url: url) { (json) in
             do {
-                let response = try CharactersResponse(json: json)
-                print("This is response:\(response)")
+                let response = try CharactersResponse(charactersResult: json)
+                page += 1
                 completion(response)
             } catch {
                 print(error)

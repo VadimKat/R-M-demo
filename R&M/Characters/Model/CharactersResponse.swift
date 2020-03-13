@@ -10,18 +10,19 @@ import Foundation
 
 struct CharactersResponse {
     typealias JSON = [String: AnyObject]
-    let characters: [CharactersAPI]
+    var characters: [CharactersAPI] = []
     
-    init(json: Any) throws {
+    init(charactersResult: Any) throws {
         
-        guard let array = json as? [JSON] else { throw NetworkError.failInternetError }
+        guard let array = charactersResult as? [JSON]  else {throw NetworkError.failedInternetError}
         
-        var characters = [CharactersAPI]()
- 
+        var characters: [CharactersAPI] = []
+        
         for dictionary in array {
             guard let character = CharactersAPI(dict: dictionary) else { continue }
             characters.append(character)
         }
         self.characters = characters
+        
     }
 }
